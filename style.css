@@ -8,7 +8,6 @@ body {
   margin-left: 70px;
   margin-right: 20px;
   background-color: rgb(199, 205, 209);
-  font-family: "RubikBubbles-Regular";
 }
 
 .header {
@@ -20,9 +19,16 @@ body {
   padding: 0 20px; /*отступы по бокам*/
   color: white;
   display: flex;
-  flex-direction: column; /*не работает*/
+  flex-direction: row; /* column не работает*/
   min-height: 150px;
   position: relative;
+}
+
+@font-face {
+  font-family: "RubikBubbles-Regular";
+  src: url("fonts/RubikBubbles-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 .header__text {
@@ -32,13 +38,7 @@ body {
   left: 50px;
   font-size: 40px;
   z-index: 1; /*текст будет поверх дургих элементов*/
-
-  @font-face {
-    font-family: "RubikBubbles-Regular";
-    src: url("fonts/RubikBubbles-Regular.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-  }
+  font-family: "RubikBubbles-Regular";
 }
 .header__link {
   color: white;
@@ -50,11 +50,13 @@ body {
   position: absolute;
   right: 20px;
   bottom: 30px;
-  list-style-type: none;
 }
 
 .header__list {
+  font-family: "RubikBubbles-Regular";
   display: flex;
+  list-style-type: none;
+  flex-direction: column; /*оставила колонкой , так визуальнее лучше */
 }
 
 .container {
@@ -64,19 +66,19 @@ body {
   gap: 10px;
 }
 .container__section-one {
-  background-color: rgb(247, 213, 239);
+  background-color: rgb(247, 213, 239); /*покрашен просто так чтобы видеть на станице. потом цвет уберу*/
   height: 100px;
   width: 30%;
 }
 
 .container__section-two {
-  background-color: rgb(213, 236, 247);
+  background-color: rgb(213, 236, 247); /*покрашен просто так чтобы видеть на станице. потом цвет уберу*/
   height: 100px;
   width: 30%;
 }
 
 .container__section-free {
-  background-color: rgb(225, 244, 171);
+  background-color: rgb(225, 244, 171); /*покрашен просто так чтобы видеть на станице. потом цвет уберу*/
   height: 100px;
   width: 30%;
 }
