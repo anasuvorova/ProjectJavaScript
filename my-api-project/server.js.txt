@@ -1,0 +1,18 @@
+// Импортируем Express
+const express = require('express');
+
+// Создаем экземпляр приложения Express
+const app = express();
+
+// Указываем порт для сервера
+const PORT = 3000;
+
+// Отправляем простой ответ на запрос по корневому пути
+app.get('/', (req, res) => {
+  res.send('Привет, это сервер на Express!');
+});
+
+// Запускаем сервер на указанном порту
+app.listen(PORT, () => {
+  console.log(`Сервер работает на http://localhost:${PORT}`);
+});
