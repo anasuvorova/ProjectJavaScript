@@ -205,3 +205,6 @@ body {
   background: linear-gradient(45deg, #1e3a8a, #c0c0c0);
   border-radius: 5px;
 }
+.planet-info__planet-text {
+  color: white;
+}

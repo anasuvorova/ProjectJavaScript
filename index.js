@@ -252,12 +252,12 @@ class Planet {
     this._button = button;
   }
 
-  getTemplete() {
+  getTemplate() {
     return `
     <div class="generation-planet">
     <span class="generation-planet__text">Я угадал? Ты загадал(а) планету <strong>${this._name}</strong></span>
     
-    <button class="generation-plane__button-yes">Угадал (жми сюда!)</button>
+    <button class="generation-plane__button-yes">Угадал (узнать о планете)</button>
     <button class="generation-plane__button-no">Не угадал</button>
     </div>
     `;
@@ -274,19 +274,58 @@ class Planet {
     `;
   }
 }
-
 const getRandomPlanet = () => {
   const randomPlanet = arr[Math.floor(Math.random() * arr.length)];
   return randomPlanet;
 };
 
-//создаю переменную для хранения текущей планеты
+// пока undefined
 let planet;
+const generationDiv = document.querySelector(".generation");
+const buttonGeneration = document.querySelector(".generation__button");
+buttonGeneration.addEventListener("click", () => {
+  const deletePlanetInfo = document.querySelector(".planet-info");
 
-const sawPlanetInfo = () => {
-  const againRandomPlanet = this.randomPlanet;
-  return againRandomPlanet;
-};
+  if (deletePlanetInfo) {
+    deletePlanetInfo.remove();
+  }
+
+  //удаляю текст если он есть
+  const deletePlanetText = generationDiv.querySelector(".generation-planet");
+  if (deletePlanetText) {
+    //удаляю старую планету
+    deletePlanetText.remove();
+  }
+  //получаю случайную планету
+  planet = getRandomPlanet(); //тут присваиваю глобальную переменную
+  //сохраняю результат вызова метода в переменную
+  //создаю шаблон
+  const planetTemplate = planet.getTemplate();
+  //вставляю НТМЛ на страницу
+  generationDiv.insertAdjacentHTML("beforeend", planetTemplate);
+
+  //теперь кнопка уже уже есть на странице - ищу её (кнопка угадал)
+  const buttonYes = document.querySelector(".generation-plane__button-yes");
+  //вешаю обработчик на кнопку
+  buttonYes.addEventListener("click", () => {
+    const deletePlanetInfo = document.querySelector(".planet-info");
+    if (deletePlanetInfo) {
+      //если фото и описани уже есть - удаляю
+      deletePlanetInfo.remove();
+      //можно снова нажать
+      buttonYes.disabled = false;
+    } else {
+      //если нет фото и описания - вставляю
+      //получаю нтмл
+      const planetInfoImg = planet.getDivPlanetInfo();
+      //использую эту переменную для полчуения шаблона и отрисовки
+
+      generationDiv.insertAdjacentHTML("beforeend", planetInfoImg);
+      //можно снова нажать
+      buttonYes.disabled = false;
+    }
+  });
+});
 
 const mercury = new Planet({
   name: "Меркурий ",
@@ -294,53 +333,45 @@ const mercury = new Planet({
   description:
     "Мерку́рий — наименьшая планета Солнечной системы и самая близкая к Солнцу. Названа в честь древнеримского бога торговли — быстрого Меркурия, поскольку она движется по небу быстрее других планет. Её период обращения вокруг Солнца составляет всего 87,97 земных суток — самый короткий среди всех планет Солнечной системы.",
 });
-
 const venus = new Planet({
   name: " Венера",
   img: "images/merkuriy.jpg",
   description: `Вене́ра — вторая по удалённости от Солнца и шестая по размеру планета Солнечной системы, наряду с Меркурием, Землёй и Марсом принадлежащая к семейству планет земной группы. Названа в честь древнеримской богини любви Венеры. По ряду характеристик — например, по массе и размерам — Венера считается «сестрой» Земли. `,
 });
-
 const earth = new Planet({
   name: " Земля",
   img: "images/zemlya.jpg",
   description: `Земля́ — третья по удалённости от Солнца планета Солнечной системы. Самая плотная, пятая по диаметру и массе среди всех планет Солнечной системы и крупнейшая среди планет земной группы, в которую входят также Меркурий, Венера и Марс. Единственное известное человеку в настоящее время тело во Вселенной, населённое живыми организмами.`,
 });
-
-const arr = [mercury, venus, earth];
-
-const buttonGeneration = document.querySelector(".generation__button");
-
-const generationDiv = document.querySelector(".generation");
-
-buttonGeneration.addEventListener("click", () => {
-  //убираю старое содержимое если оно есть
-  const deletePlanetText = generationDiv.querySelector(".generation-planet");
-  if (deletePlanetText) {
-    //удаляю старую планету
-    deletePlanetText.remove();
-  }
-  //сохраняю результат вызова метода в переменную
-  const randomPlanetListener = getRandomPlanet();
-  //использую эту переменную для полчуения шаблона и отрисовки
-  const planetTemplate = randomPlanetListener.getTemplete();
-
-  generationDiv.insertAdjacentHTML("beforeend", planetTemplate);
+const mars = new Planet({
+  name: " Марс",
+  img: "images/mars.jpg",
+  description: `Марс — четвёртая по удалённости от Солнца и седьмая по размеру планета Солнечной системы. Наряду с Меркурием, Венерой и Землёй принадлежит к семейству планет земной группы. Названа в честь Марса — древнеримского бога войны, соответствующего древнегреческому Аресу.`,
 });
-//кнопка угадал
-const buttonYes = document.querySelector(".generation-plane__button-yes");
-const planetInfoImg = document.querySelector(".planet-info");
 
-buttonYes.addEventListener("click", () => {
-  //если снегерированная планета 'пришла" в () то ...
-
-  if (planet) {
-    buttonYes.ariaDisabled = true;
-    //сохраняю результат вызова метода в переменную
-    const planetInfoImgListener = sawPlanetInfo();
-    //использую эту переменную для полчуения шаблона и отрисовки
-    const planetInfoImg = planetInfoImgListener.sawPlanetInfo();
-    generationDiv.appendChild(planetInfoImg);
-    generationDiv.insertAdjacentHTML("beforeend", planetInfoImg);
-  }
+const jupiter = new Planet({
+  name: " Юпитер",
+  img: "images/ypiter.jpg",
+  description: `Юпи́тер — самая большая планета в Солнечной системе, пятая по удалённости от Солнца. Наряду с Сатурном Юпитер классифицируется как газовый гигант. `,
 });
+
+const saturn = new Planet({
+  name: " Сатурн",
+  img: "images/saturn.jpg",
+  description: `Сату́рн — шестая планета по удалённости от Солнца и вторая по размерам планета в Солнечной системе после Юпитера. Сатурн классифицируется как газовый гигант. Планета названа в честь римского бога земледелия.`,
+});
+
+const uranus = new Planet({
+  name: "Уран ",
+  img: "images/uran.avif",
+  description: `Ура́н — планета Солнечной системы, седьмая по удалённости от Солнца, третья по диаметру и четвёртая по массе. Была открыта в 1781 году английским астрономом Уильямом Гершелем и названа в честь греческого бога неба Урана. Уран стал первой планетой, обнаруженной в Новое время и при помощи телескопа. `,
+});
+
+const neptun = new Planet({
+  name: " Нептун",
+  img: "images/neptun.jpg",
+  description: `Непту́н — восьмая и самая дальняя от Солнца планета Солнечной системы. Его масса превышает массу Земли в 17,2 раза и является третьей среди планет Солнечной системы, а по экваториальному диаметру Нептун занимает четвёртое место, превосходя Землю в 3,9 раза. Планета названа в честь Нептуна — римского бога морей. `,
+});
+const arr = [mercury, venus, earth, mars, jupiter, saturn, uranus, neptun];
+
+//НЕ ЗАБЫТЬ ДОБАВИТЬ ОБЕКТЫ ДРУГИХ ПЛАНЕТ
