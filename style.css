@@ -20,6 +20,7 @@ body {
   color: white;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 @font-face {
@@ -30,13 +31,14 @@ body {
 }
 
 .header__text {
-  font-size: 20px;
+  font-size: 40px;
   position: absolute;
   top: 40px;
   left: 50px;
   font-size: 40px;
   z-index: 1; /*текст будет поверх дургих элементов*/
   font-family: "RubikBubbles-Regular";
+  overflow: hidden;
   color: white;
 }
 .header__link {
@@ -48,6 +50,7 @@ body {
   position: absolute;
   right: 20px;
   bottom: 30px;
+  font-size: 17px;
 }
 
 .header__list {
@@ -125,10 +128,21 @@ body {
   transition: background 0.3s ease; /* Плавный переход при наведении */
   margin-top: 10px;
 }
-
-.gradient-button:hover {
-  background: linear-gradient(45deg, #1e3a8a, #c0c0c0); /* Обратный градиент при наведении */
+.card-content__button--photo {
+  background: linear-gradient(45deg, #1e3a8a, #c0c0c0);
+  border-radius: 5px; /* */
 }
+
+.card-content__button--two {
+  background: linear-gradient(45deg, #1e3a8a, #c0c0c0);
+  border-radius: 5px; /*  */
+}
+
+.card-content__button--three {
+  background: linear-gradient(45deg, #1e3a8a, #c0c0c0);
+  border-radius: 5px; /* */
+}
+
 .main {
   background-image: url("images/kosmos4.jpg"), url("images/kosmos5.jpg"), url("images/kosmos6.jpg");
   background-position: top center, top center, bottom center;
@@ -142,4 +156,52 @@ body {
 }
 .footer {
   background-image: url("images/kosmos6.jpg");
+}
+
+.generation__question {
+  color: #fffbfb;
+}
+
+.generation__button {
+  background: linear-gradient(45deg, #1e3a8a, #c0c0c0);
+  border-radius: 5px;
+}
+
+.generation__question {
+  color: white;
+}
+.generation-planet__text {
+  color: white;
+}
+
+.generation {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  padding: 10px;
+}
+
+.generation__question {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px; /*отступ между строкой и кнопкой*/
+}
+
+.generation__button {
+  background: linear-gradient(45deg, #1e3a8a, #c0c0c0);
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.generation-plane__button-yes {
+  background: linear-gradient(45deg, #1e3a8a, #c0c0c0);
+  border-radius: 5px;
+}
+
+.generation-plane__button-no {
+  background: linear-gradient(45deg, #1e3a8a, #c0c0c0);
+  border-radius: 5px;
 }
