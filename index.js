@@ -298,11 +298,13 @@ buttonGeneration.addEventListener("click", () => {
   }
   //получаю случайную планету
   planet = getRandomPlanet(); //тут присваиваю глобальную переменную
-  //сохраняю результат вызова метода в переменную
-  //создаю шаблон
+
   const planetTemplate = planet.getTemplate();
   //вставляю НТМЛ на страницу
   generationDiv.insertAdjacentHTML("beforeend", planetTemplate);
+
+  //сохраняю результат вызова метода в переменную
+  //создаю шаблон
 
   //теперь кнопка уже уже есть на странице - ищу её (кнопка угадал)
   const buttonYes = document.querySelector(".generation-plane__button-yes");

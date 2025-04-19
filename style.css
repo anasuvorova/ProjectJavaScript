@@ -62,12 +62,15 @@ body {
 
 .container {
   margin-top: 20px;
+  padding: 20px;
   display: flex;
   /*flex-direction: row;*/
   gap: 20px;
   padding: 20px;
   justify-content: space-between;
   flex-wrap: wrap;
+ position: relative;
+  /*z-index: 1; */
 }
 
 .header__container {
@@ -143,21 +146,60 @@ body {
   border-radius: 5px; /* */
 }
 
-.main {
-  background-image: url("images/kosmos4.jpg"), url("images/kosmos5.jpg"), url("images/kosmos6.jpg");
-  background-position: top center, top center, bottom center;
-  background-size: cover; /*растягиваю картинки  чтобы они полностью покрывали контейнер*/
-  background-repeat: no-repeat; /*без повторений*/ /**/
+background-images img {
+ 
+  width: 100%;
   height: 100vh;
+  padding: 0;
+  object-fit: cover;
+  
+}
+
+.main {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding-top: 20px; /*отступ сверху чтобы избежать перекрытия с хедером*/
-}
-.footer {
-  background-image: url("images/kosmos6.jpg");
+  padding-top: 20px;
+  
+  background-image: url("images/kosmos4.jpg"), url("images/kosmos5.jpg");
+  background-position: top center, top center, bottom center;
+ 
 }
 
+.background-images {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+z-index: -1;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("images/kosmos4.jpg"), url("images/kosmos5.jpg") url("images/kosmos6.jpg");
+  background-position: top center, top center, bottom center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -1; /*чтобы фон был позади основного контента*/
+}
+.footer {
+  background-image: url("images/kosmos7.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 130px;
+  
+  text-align: center;
+  color: white;
+  padding: 20px;
+  z-index: 0; /* чтобы футер не перекрывал другие элементы */
+ /* margin-top: 20px; /*гарантирует что футер не будет прижиматься к содержимому  */ */
+  
+}
 .generation__question {
   color: #fffbfb;
 }
@@ -207,4 +249,17 @@ body {
 }
 .planet-info__planet-text {
   color: white;
+}
+
+.generation__question{
+  color: white;
+  font-size: 50px;
+}
+
+.generation-planet__text{
+ font-size: 32px;
+}
+
+.planet-info__planet-text{
+  font-size: 25px;
 }
