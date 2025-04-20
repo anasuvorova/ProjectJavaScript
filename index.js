@@ -1,21 +1,23 @@
-/*
+//const { log } = require("console");
+
 document.querySelector(".card-content__button--photo").addEventListener("click", () => {
   console.log(`кнопка нажата`);
-  */
 
-//  fetch("http://localhost:3000/api/nasa-obg" /*`/api/nasa-obg`*/)
-//     .then((response) => response.json())
+  fetch("http://localhost:3000/api/nasa-obg")
+    .then((response) => response.json())
 
-//     .then((obj) => {
-//       console.log(obj);
+    .then((obj) => {
+      
+      console.log(obj);
+      const apiKey = "8d9xEKFtAAW4OUxarZnjiLrZTaBK5BFzMbXs7kP9";
+      window.open(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=${apiKey}`);
+      window.open(url, "_blank");
+    })
 
-//       /* window.open("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=DEMO_KEY`", "_blank");*/
-//     })
-
-//     .catch((error) => {
-//       console.error("ошибка:", error);
-//     });/*
-// });
+    .catch((error) => {
+      console.error("ошибка:", error);
+    });
+});
 
 /*
 const question = [
