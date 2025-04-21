@@ -5,7 +5,7 @@
     height: 100vh;
     overflow: hidden;
 
-    background-image: url('/assets/images/background_starry_sky.jpg');
+    background-image: url('/images/background_starry_sky.jpg');
     background-size: cover;
     background-position: center;
     position: relative; 
