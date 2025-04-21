@@ -1,0 +1,164 @@
+.container {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+    background-image: url('/assets/images/background_starry_sky.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative; 
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-wrapper {
+    position: relative;
+    width: 90vw;
+    max-width: none;
+    aspect-ratio: 730 / 487;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.sun {
+    position:absolute;
+    cursor: pointer;
+    top: 61%;
+    width: 24%; 
+    height: 39%;
+    border: none;
+    border-radius: 20%; 
+    background-color: rgba(205, 146, 44, 0.3);
+    border-top-right-radius: 70% 100%;
+    border-bottom-right-radius: 50%;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.planet {
+    position:absolute;
+    cursor: pointer;   
+    border-radius: 50%; 
+    border: none;
+}
+
+.mercury {
+    top: 70%;
+    left: 26.5%;
+    width: 7.5%;
+    height: 12%;
+    border-radius: 50%;
+    background-color: rgba(96, 96, 82, 0.3);
+}
+
+.venus {
+    top: 46%;
+    left: 23.8%;
+    width: 7%; 
+    height: 11%;
+    background-color: rgba(202, 155, 74, 0.3);
+}
+
+.earth {
+    top: 59%;
+    left: 37.7%;
+    width: 13%; 
+    height: 19%;
+    background-color: rgba(51, 107, 167, 0.3);
+}
+
+.mars {
+    top: 35%;
+    left: 40.5%;
+    width: 8.8%; 
+    height: 13%;
+    background-color: rgba(216, 147, 29, 0.3);
+}
+
+.jupiter {
+    top: 38%;
+    left: 52.2%;
+    width: 17.2%; 
+    height: 24.8%;
+    background-color: rgba(167, 120, 51, 0.3);
+}
+
+.saturn {
+    top: 67.7%;
+    left: 72%;
+    width: 8.5%; 
+    height: 13%;
+    background-color: rgba(189, 180, 97, 0.3);
+}
+
+.uranus {
+    top: 21%;
+    left: 71.4%;
+    width: 11%; 
+    height: 16.5%;
+    background-color: rgba(75, 97, 186, 0.3);
+}
+
+.neptune {
+    top: 34.8%;
+    left: 85.8%;
+    width: 8%; 
+    height: 11%;
+    background-color: rgba(50, 76, 181, 0.3);
+}
+
+.pluto {
+    top: 15.8%;
+    left: 90.4%;
+    width: 4%; 
+    height: 6%;
+    background-color: rgba(193, 187, 149, 0.3);
+}
+
+.modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+} 
+
+.modal-content {
+    background: linear-gradient(145deg, #1d1d3c, #3e3e70);
+    color: #fff;
+    padding: 1vw;
+    border-radius: 3vw;
+    width: 50%;
+    max-width: 15vw;
+    text-align: center;
+    position: relative;
+    margin-top: 10%;
+    margin-left: 7%;
+    font-size: 1vw;
+}
+
+.hidden {
+    display: none;
+}
+
+.space {
+    transition: transform 0.3s ease;
+}
+
+.space:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
