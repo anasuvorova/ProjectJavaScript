@@ -162,3 +162,16 @@
     transform: scale(1.2);
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
 }
+
+.back-link {
+    position: absolute;
+    top: 12%;
+    left: 2%;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 0.5vw 1vw;
+    border-radius: 1vw;
+    text-decoration: none;
+    font-size: 1vw;
+}
+
